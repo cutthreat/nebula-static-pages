@@ -21,3 +21,8 @@ Run the deterministic PR gate locally with:
 ```powershell
 pwsh -NoProfile -ExecutionPolicy Bypass -File .github\scripts\quality-gate.ps1 -Phase all
 ```
+
+## GitHub review flow
+
+- Deterministic merge protection stays on `quality-gate`.
+- Included Codex review can be requested on a PR with `@codex review`.
