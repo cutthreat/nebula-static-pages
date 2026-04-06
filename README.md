@@ -13,3 +13,11 @@ Public static export of the currently built NEBULA pages and review surfaces.
 - `cheap-psychic-new.html` - product page
 
 The package is intended for public preview via GitHub Pages.
+
+## Local quality gate
+
+Run the deterministic PR gate locally with:
+
+```powershell
+pwsh -NoProfile -ExecutionPolicy Bypass -File .github\scripts\quality-gate.ps1 -Phase all
+```
