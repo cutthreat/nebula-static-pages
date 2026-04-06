@@ -34,6 +34,18 @@ jobs:
             echo "skip=false" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Report inactive AI lane
+        if: steps.keycheck.outputs.skip == 'true'
+        shell: bash
+        run: |
+          {
+            echo "## AI PR Review"
+            echo
+            echo "Advisory lane is configured but inactive."
+            echo
+            echo "Reason: \`OPENAI_API_KEY\` is not configured in repository secrets."
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Pre-fetch PR refs
         if: steps.keycheck.outputs.skip == 'false' && github.event_name == 'pull_request'
         env:
